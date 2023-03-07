@@ -92,7 +92,3 @@ def conv_num(num_str):
 
     if hexBased:
         return hexValue
-
-
-if __name__ == '__main__':
-    print(conv_num('0xAD4'))
