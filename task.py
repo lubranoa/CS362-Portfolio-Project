@@ -9,11 +9,10 @@ def conv_num(num_str):
     hexValue = False
     intValue = False
     symbols = [".", "-"]
-    numbers = [0,1,2,3,4,5,6,7,8,9]
+    # numbers = [0,1,2,3,4,5,6,7,8,9]
     negFound = 0
     deciFound = 0
     deciLoc = 0
-    deciLocation = None
 
     if num_str[0] == "0" and len(num_str) > 1 and num_str[1] == "x":
         hexValue = True
@@ -24,11 +23,12 @@ def conv_num(num_str):
         # Handle base10 num
         if intValue:
             num = num_str[i]
-            if periodFound > 1:                             # check if multiple . found
+            if periodFound > 1:     # check if multiple . found
                 return None
             if num == ".":
                 periodFound += 1
-            if not num.isnumeric() and num not in symbols:  # Check if not a number nor symbol
+            # Check if not a number nor symbol
+            if not num.isnumeric() and num not in symbols:
                 return None
 
             if num == "-":
@@ -43,7 +43,7 @@ def conv_num(num_str):
 
         else:
             return None
-        
+
     # convert string to number for base10 string
     if intValue:
         result = 0
@@ -64,14 +64,6 @@ def conv_num(num_str):
             result *= -1
 
         return result
-    
+
     if hexValue:
         return num_str
-
-
-
-
-
-if __name__ == '__main__':
-    print(conv_num('-12.345'))
-    # print(conv_num('0x'))
