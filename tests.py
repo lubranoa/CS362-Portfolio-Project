@@ -22,8 +22,16 @@ class TestCase(unittest.TestCase):
         self.assertEqual(conv_num(number), -12.345)
 
     def test5_conv(self):
-        number = '0.45'
+        number = '.45'
         self.assertEqual(conv_num(number), 0.45)
+
+    def test6_conv(self):
+        number = '0xAD4'
+        self.assertEqual(conv_num(number), 2772)
+
+    def test7_conv(self):
+        number = '0xAZ4'
+        self.assertEqual(conv_num(number), None)
 
 
 if __name__ == '__main__':
