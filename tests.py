@@ -58,6 +58,16 @@ class TestCase(unittest.TestCase):
         number = 10
         self.assertEqual(conv_endian(number), '0A')
 
+    # Verifies if the number 15 is returned properly
+    def test5_conv_end(self):
+        number = 15
+        self.assertEqual(conv_endian(number), '0F')
+
+    # Verifies if the number 16 is returned properly
+    def test6_conv_end(self):
+        number = 16
+        self.assertEqual(conv_endian(number), '10')
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

@@ -109,15 +109,23 @@ def conv_endian(num, endian='big'):
     """
 
     hex_str = string.digits + string.ascii_uppercase[0:6]  # '0123456789ABCDEF'
-    modulo_list = []
+    char_stack = []
     out_str = ''
 
     # Get hex digit char and append to modulo_list
-    modulo_list.append(hex_str[num])
+    if num == 0:
+        char_stack.append(hex_str[num])
+
+    while num != 0:
+        modulo = num % 16
+        char_stack.append(hex_str[modulo])
+        num //= 16
 
     # Construct string
-    if len(modulo_list) % 2 != 0:
+    if len(char_stack) % 2 != 0:
         out_str += '0'
-    out_str += modulo_list[0]
+
+    while len(char_stack) != 0:
+        out_str += char_stack.pop()
 
     return out_str
