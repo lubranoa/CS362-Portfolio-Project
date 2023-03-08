@@ -108,6 +108,36 @@ class TestCase(unittest.TestCase):
         number = -1
         self.assertEqual(conv_endian(number), '-01')
 
+    # Verifies if the number -255 is returned properly
+    def test15_conv_end(self):
+        number = -255
+        self.assertEqual(conv_endian(number), '-FF')
+
+    # Verifies if the number -954786 is returned properly
+    def test16_conv_end(self):
+        number = -954786
+        self.assertEqual(conv_endian(number), '-0E 91 A2')
+
+    # Verifies if the number -99999999 is returned properly
+    def test17_conv_end(self):
+        number = -99999999
+        self.assertEqual(conv_endian(number), '-05 F5 E0 FF')
+
+    # Verifies if using 'big' as an argument returns properly
+    def test18_conv_end(self):
+        number = 954786
+        self.assertEqual(conv_endian(number, 'big'), '0E 91 A2')
+
+    # Verifies if using endian='big' as an argument returns properly
+    def test19_conv_end(self):
+        number = 954786
+        self.assertEqual(conv_endian(number, endian='big'), '0E 91 A2')
+
+    # Verifies if using 'Big' as an argument returns None
+    def test20_conv_end(self):
+        number = 954786
+        self.assertEqual(conv_endian(number, 'Big'), None)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

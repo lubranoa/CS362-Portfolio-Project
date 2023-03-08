@@ -107,9 +107,11 @@ def conv_endian(num, endian='big'):
     :return: The converted hex number string in specified byte order
     :rtype: string or None
     """
-
     hex_str = string.digits + string.ascii_uppercase[0:6]  # '0123456789ABCDEF'
     char_stack = []
+
+    if endian != 'big':
+        return None
 
     out_str = '' if num >= 0 else '-'
     num = abs(num)
