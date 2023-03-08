@@ -92,3 +92,28 @@ def conv_num(num_str):
 
     if hexBased:
         return hexValue
+
+
+def conv_endian(num, endian='big'):
+    """Converts an integer from base 10 to a hexadecimal string in
+    either big or little endian byte order. Returns None if value for
+    endian is incorrect.
+
+    :param int num: A negative or positive integer
+    :param str endian: A byte order, 'big' or 'little', defaults to 'big'
+    :return: The converted hex number string in specified byte order
+    :rtype: string or None
+    """
+    ascii_0_val = ord('0')
+    modulo_list = []
+    hex_str = ''
+
+    # Get hex digit char and append to modulo_list
+    modulo_list.append(chr(ascii_0_val + num))
+
+    # Construct string
+    if len(modulo_list) % 2 != 0:
+        hex_str += '0'
+    hex_str += modulo_list[0]
+
+    return hex_str

@@ -1,5 +1,5 @@
 import unittest
-from task import conv_num
+from task import conv_num, conv_endian
 
 
 class TestCase(unittest.TestCase):
@@ -33,6 +33,16 @@ class TestCase(unittest.TestCase):
         number = '0xAZ4'
         self.assertEqual(conv_num(number), None)
 
+    # -----------------------------------------------------------------
+    # Test Driven Development for conv_endian()
+    #
+    # -----------------------------------------------------------------
+
+    # Verifies if the number 0 is returned properly
+    def test1_conv_end(self):
+        number = 0
+        self.assertEqual(conv_endian(number), '00')
+
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
