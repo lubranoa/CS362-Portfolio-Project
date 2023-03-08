@@ -110,7 +110,9 @@ def conv_endian(num, endian='big'):
 
     hex_str = string.digits + string.ascii_uppercase[0:6]  # '0123456789ABCDEF'
     char_stack = []
-    out_str = ''
+
+    out_str = '' if num >= 0 else '-'
+    num = abs(num)
 
     # Get hex digit chars and append to char_stack
     if num == 0:
