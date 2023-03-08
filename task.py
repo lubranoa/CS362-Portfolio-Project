@@ -2,6 +2,9 @@
 #
 #
 
+import string
+
+
 def conv_num_int_helper(num_str, intBased, hexBased):
     symbols = [".", "-"]
     failure = False
@@ -92,3 +95,42 @@ def conv_num(num_str):
 
     if hexBased:
         return hexValue
+
+
+def conv_endian(num, endian='big'):
+    """Converts an integer from base 10 to a hexadecimal string in
+    either big or little endian byte order. Returns None if value for
+    endian is incorrect.
+
+    :param int num: A negative or positive integer
+    :param str endian: A byte order, 'big' or 'little', defaults to 'big'
+    :return: The converted hex number string in specified byte order
+    :rtype: string or None
+    """
+    hex_str = string.digits + string.ascii_uppercase[0:6]  # '0123456789ABCDEF'
+    char_stack = []
+
+    if endian != 'big':
+        return None
+
+    out_str = '' if num >= 0 else '-'
+    num = abs(num)
+
+    # Get hex digit chars and append to char_stack
+    if num == 0:
+        char_stack.append(hex_str[num])
+    while num != 0:
+        modulo = num % 16
+        char_stack.append(hex_str[modulo])
+        num //= 16
+
+    # Construct string
+    if len(char_stack) % 2 != 0:
+        out_str += '0'
+    while len(char_stack) != 0:
+        out_str += char_stack.pop()
+        # Insert space between each pair of hex digits, unless none left
+        if len(char_stack) > 0 and len(char_stack) % 2 == 0:
+            out_str += ' '
+
+    return out_str
