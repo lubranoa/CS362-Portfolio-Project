@@ -2,6 +2,9 @@
 #
 #
 
+import string
+
+
 def conv_num_int_helper(num_str, intBased, hexBased):
     symbols = [".", "-"]
     failure = False
@@ -104,16 +107,17 @@ def conv_endian(num, endian='big'):
     :return: The converted hex number string in specified byte order
     :rtype: string or None
     """
-    ascii_0_val = ord('0')
+
+    hex_str = string.digits + string.ascii_uppercase[0:6]  # '0123456789ABCDEF'
     modulo_list = []
-    hex_str = ''
+    out_str = ''
 
     # Get hex digit char and append to modulo_list
-    modulo_list.append(chr(ascii_0_val + num))
+    modulo_list.append(hex_str[num])
 
     # Construct string
     if len(modulo_list) % 2 != 0:
-        hex_str += '0'
-    hex_str += modulo_list[0]
+        out_str += '0'
+    out_str += modulo_list[0]
 
-    return hex_str
+    return out_str

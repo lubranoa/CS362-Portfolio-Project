@@ -43,6 +43,21 @@ class TestCase(unittest.TestCase):
         number = 0
         self.assertEqual(conv_endian(number), '00')
 
+    # Verifies if the number 6 is returned properly
+    def test2_conv_end(self):
+        number = 6
+        self.assertEqual(conv_endian(number), '06')
+
+    # Verifies if the number 9 is returned properly
+    def test3_conv_end(self):
+        number = 9
+        self.assertEqual(conv_endian(number), '09')
+
+    # Verifies if the number 10 is returned properly
+    def test4_conv_end(self):
+        number = 10
+        self.assertEqual(conv_endian(number), '0A')
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
