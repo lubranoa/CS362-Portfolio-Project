@@ -130,8 +130,8 @@ class TestCase(unittest.TestCase):
 
     # Verifies if using endian='big' as an argument returns properly
     def test19_conv_end(self):
-        number = 954786
-        self.assertEqual(conv_endian(number, endian='big'), '0E 91 A2')
+        number = -954786
+        self.assertEqual(conv_endian(number, endian='big'), '-0E 91 A2')
 
     # Verifies if using 'Big' as an argument returns None
     def test20_conv_end(self):
