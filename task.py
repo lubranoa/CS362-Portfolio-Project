@@ -112,10 +112,9 @@ def conv_endian(num, endian='big'):
     char_stack = []
     out_str = ''
 
-    # Get hex digit char and append to modulo_list
+    # Get hex digit chars and append to char_stack
     if num == 0:
         char_stack.append(hex_str[num])
-
     while num != 0:
         modulo = num % 16
         char_stack.append(hex_str[modulo])
@@ -124,8 +123,10 @@ def conv_endian(num, endian='big'):
     # Construct string
     if len(char_stack) % 2 != 0:
         out_str += '0'
-
     while len(char_stack) != 0:
         out_str += char_stack.pop()
+        # Insert space between each pair of hex digits, unless none left
+        if len(char_stack) > 0 and len(char_stack) % 2 == 0:
+            out_str += ' '
 
     return out_str

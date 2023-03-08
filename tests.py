@@ -38,7 +38,7 @@ class TestCase(unittest.TestCase):
     #
     # -----------------------------------------------------------------
 
-    # Verifies if the number 0 is returned properly
+    # Verifies if the number 0 is returned correctly
     def test1_conv_end(self):
         number = 0
         self.assertEqual(conv_endian(number), '00')
@@ -67,6 +67,26 @@ class TestCase(unittest.TestCase):
     def test6_conv_end(self):
         number = 16
         self.assertEqual(conv_endian(number), '10')
+
+    # Verifies if the number 100 is returned properly
+    def test7_conv_end(self):
+        number = 100
+        self.assertEqual(conv_endian(number), '64')
+
+    # Verifies if the number 196 is returned properly
+    def test8_conv_end(self):
+        number = 196
+        self.assertEqual(conv_endian(number), 'C4')
+
+    # Verifies if the number 255 is returned properly
+    def test9_conv_end(self):
+        number = 255
+        self.assertEqual(conv_endian(number), 'FF')
+
+    # Verifies if the number 255 is returned properly
+    def test10_conv_end(self):
+        number = 256
+        self.assertEqual(conv_endian(number), '01 00')
 
 
 if __name__ == '__main__':
