@@ -151,8 +151,6 @@ def conv_endian(num, endian='big'):
     return out_str
 
 
-
-
 def my_datetime(num_sec):
     """
     takes an integer value that represents the number of
