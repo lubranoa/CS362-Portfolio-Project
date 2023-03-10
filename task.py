@@ -110,7 +110,7 @@ def conv_num(num_str):
         return hex_value
     else:
         return None
-      
+    
 
 def conv_endian(num, endian='big'):
     """Converts an integer from base 10 to a hexadecimal string in
