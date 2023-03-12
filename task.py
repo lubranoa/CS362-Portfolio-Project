@@ -206,11 +206,16 @@ def my_datetime(num_sec):
     if prior_days > days_to_goal:  # overshot month
         month -= 1
         prior_days -= days_in_month[month] + (month == 2 and leap_year)
+        if month == 2 and leap_year:
+            days_to_goal += 1
     elif leap_year:
         days_to_goal += 1
     days_to_goal -= prior_days
 
     days_to_goal += 2
+    if leap_year:
+        days_in_month[month] = 29
+
     if days_to_goal > days_in_month[month]:
         calc_days = days_in_month[month]
         if month == 12:
