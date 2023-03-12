@@ -163,8 +163,8 @@ def my_datetime(num_sec):
     # CODE ADAPTED FROM PYTHON DATETIME LIBRARY DOCUMENTATION
     #
 
-    if 0 <= num_sec < 86400:
-        return "01-01-1970"
+    # if 0 <= num_sec < 86400:
+        # return "01-01-1970"
 
     # invalid input: negative or not type int
     if num_sec < 0 or not isinstance(num_sec, int):
@@ -225,15 +225,21 @@ def my_datetime(num_sec):
             month += 1
         days_to_goal -= calc_days
 
-    curr_year = str(curr_year)
+    date = my_datetime_make_string(curr_year, month, days_to_goal)
+
+    return date
+
+
+def my_datetime_make_string(year, month, day):
+    """stringify and concatenate date"""
+    year = str(year)
     month = str(month)
     if len(month) == 1:
         month = "0" + month
-    days_to_goal = str(days_to_goal)
-    if len(days_to_goal) == 1:
-        days_to_goal = "0" + days_to_goal
-
-    return month + "-" + days_to_goal + "-" + curr_year
+    day = str(day)
+    if len(day) == 1:
+        day = "0" + day
+    return month + "-" + day + "-" + year
 
 
 def my_datetime_is_leap(year):
