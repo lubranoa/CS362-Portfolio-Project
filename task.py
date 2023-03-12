@@ -158,12 +158,21 @@ def my_datetime(num_sec):
     takes num_sec and converts it to date and returns it
     as a string in format MM-DD-YYYY
     """
-    if num_sec == 0:
+
+    #
+    # CODE ADAPTED FROM PYTHON DATETIME LIBRARY DOCUMENTATION
+    #
+
+    if 0 <= num_sec < 86400:
         return "01-01-1970"
+
+    # invalid input: negative or not type int
+    if num_sec < 0 or not isinstance(num_sec, int):
+        return
 
     post_epoch_days = num_sec // (3600 * 24)
 
-    # -1 as placeholder for indexing
+    # -1 as placeholder for indexing, allows index 1 = Jan, index 12 = Dec
     days_in_month = [-1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
     days_before_month = [-1]
@@ -172,42 +181,65 @@ def my_datetime(num_sec):
         days_before_month.append(days_before)
         days_before += days_in
 
-    days_goal_year = post_epoch_days + my_datetime_days_from_year(1971)
+    days_to_goal = post_epoch_days + my_datetime_days_from_year(1971)
     days_400_years = my_datetime_days_from_year(401)
     days_100_years = my_datetime_days_from_year(101)
     days_4_years = my_datetime_days_from_year(5)
 
     # n represents offset in days
-    n = days_goal_year - 1
-    n400, n = divmod(n, days_400_years)
-    curr_year = n400 * 400
+    days_to_goal -= 1
+    divd_400, days_to_goal = divmod(days_to_goal, days_400_years)
+    curr_year = divd_400 * 400
 
-    n100, n = divmod(n, days_100_years)
+    divd_100, days_to_goal = divmod(days_to_goal, days_100_years)
 
-    n4, n = divmod(n, days_4_years)
+    divd_4, days_to_goal = divmod(days_to_goal, days_4_years)
 
-    n1, n = divmod(n, 365)
+    divd_1, days_to_goal = divmod(days_to_goal, 365)
 
-    curr_year += n100 * 100 + n4 * 4 + n1
+    curr_year += divd_100 * 100 + divd_4 * 4 + divd_1
 
     leap_year = my_datetime_is_leap(curr_year)
-    month = (n + 50) >> 5
+    month = (days_to_goal + 50) >> 5
 
     prior_days = days_before_month[month] + (month > 2 and leap_year)
-    if prior_days > n:  # overshot month
+    if prior_days > days_to_goal:  # overshot month
         month -= 1
-        prior_days -= days_in_month[month] + (month == 2 and leap_year) + 1
+        prior_days -= days_in_month[month] + (month == 2 and leap_year)
+        if month == 2 and leap_year:
+            days_to_goal += 1
     elif leap_year:
-        n += 1
-    n -= prior_days
+        days_to_goal += 1
+    days_to_goal -= prior_days
 
-    curr_year = str(curr_year)
+    days_to_goal += 2
+    if leap_year:
+        days_in_month[month] = 29
+
+    if days_to_goal > days_in_month[month]:
+        calc_days = days_in_month[month]
+        if month == 12:
+            month = 1
+            curr_year += 1
+        else:
+            month += 1
+        days_to_goal -= calc_days
+
+    date = my_datetime_make_string(curr_year, month, days_to_goal)
+
+    return date
+
+
+def my_datetime_make_string(year, month, day):
+    """stringify and concatenate date"""
+    year = str(year)
     month = str(month)
     if len(month) == 1:
         month = "0" + month
-    n = str(n + 2)
-
-    return month + "-" + n + "-" + curr_year
+    day = str(day)
+    if len(day) == 1:
+        day = "0" + day
+    return month + "-" + day + "-" + year
 
 
 def my_datetime_is_leap(year):

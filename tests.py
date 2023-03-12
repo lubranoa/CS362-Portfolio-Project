@@ -180,6 +180,64 @@ class TestCase(unittest.TestCase):
         date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
         self.assertEqual(my_datetime(num_sec), date)
 
+    def test6_datetime(self):
+        num_sec = 0
+        date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
+        self.assertEqual(my_datetime(num_sec), date)
+
+    def test7_datetime(self):
+        num_sec = -432453
+        self.assertEqual(my_datetime(num_sec), None)
+
+    def test8_datetime(self):
+        num_sec = 2432437.54
+        self.assertEqual(my_datetime(num_sec), None)
+
+    def test9_datetime(self):
+        num_sec = 76545645
+        date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
+        self.assertEqual(my_datetime(num_sec), date)
+
+    def test10_datetime(self):
+        num_sec = 9234985303
+        date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
+        self.assertEqual(my_datetime(num_sec), date)
+
+    def test11_datetime(self):
+        num_sec = 15
+        date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
+        self.assertEqual(my_datetime(num_sec), date)
+
+    def test12_datetime(self):
+        num_sec = 86400
+        date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
+        self.assertEqual(my_datetime(num_sec), date)
+
+    def test13_datetime(self):
+        num_sec = 31536001
+        date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
+        self.assertEqual(my_datetime(num_sec), date)
+
+    def test14_datetime(self):
+        num_sec = 31536001 + 86400
+        date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
+        self.assertEqual(my_datetime(num_sec), date)
+
+    def test15_datetime(self):
+        num_sec = 9435358
+        date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
+        self.assertEqual(my_datetime(num_sec), date)
+
+    def test16_datetime(self):
+        num_sec = 3452566478
+        date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
+        self.assertEqual(my_datetime(num_sec), date)
+
+    def test17_datetime(self):
+        num_sec = 549845
+        date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
+        self.assertEqual(my_datetime(num_sec), date)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
