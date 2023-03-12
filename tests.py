@@ -176,7 +176,7 @@ class TestCase(unittest.TestCase):
         self.assertEqual(my_datetime(num_sec), date)
 
     def test5_datetime(self):
-        num_sec = 2016539712
+        num_sec = 201653971200
         date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
         self.assertEqual(my_datetime(num_sec), date)
 
