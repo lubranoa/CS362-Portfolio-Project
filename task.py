@@ -248,4 +248,3 @@ def my_datetime_days_in_month(year, month, days_arr):
         return 29
     else:
         return days_arr[month]
-    
