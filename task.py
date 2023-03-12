@@ -163,8 +163,8 @@ def my_datetime(num_sec):
     # CODE ADAPTED FROM PYTHON DATETIME LIBRARY DOCUMENTATION
     #
 
-    # if 0 <= num_sec < 86400:
-        # return "01-01-1970"
+    if 0 <= num_sec < 86400:
+        return "01-01-1970"
 
     # invalid input: negative or not type int
     if num_sec < 0 or not isinstance(num_sec, int):
