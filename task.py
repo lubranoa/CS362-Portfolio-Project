@@ -12,17 +12,22 @@ def conv_num_int_helper(num_str):
     """
     symbols = [".", "-"]
     neg_found = 0
+    count_dot = 0
     for i in range(len(num_str)):
         # Handle base10 num
         num = num_str[i]
         # Check if not a number nor symbol
         if not num.isnumeric() and num not in symbols:
             return None
+        if count_dot > 1:
+            return None
         if num == "-":
             if neg_found >= 1:
                 return None
             else:
                 neg_found += 1
+        if num == ".":
+            count_dot += 1
     int_value = conv_num_str_to_int(num_str, neg_found)
     return int_value
 
@@ -58,6 +63,8 @@ def conv_num_hex_helper(num_str):
     Takes in a base16 string,
     Returns a base10 int
     """
+    if len(num_str) <= 2:
+        return None
     result = 0
     hex_index = len(num_str) - 1
     allowed_alph = ["0", "1", "2", "3", "4",
@@ -66,7 +73,7 @@ def conv_num_hex_helper(num_str):
     # Iterate through string to convert
     #   base16 string to base10 int
     for i in range(len(num_str)):
-        num = num_str[i]
+        num = num_str[i].upper()
         if i == 1 or i == 0:        # ignore 0x values in hex
             hex_index -= 1
             continue
@@ -88,7 +95,8 @@ def conv_num(num_str):
     """
     hex_based = False
     int_based = False
-
+    if not isinstance(num_str, str) or len(num_str) == 0:
+        return None
     # Check if input is base16 or base10
     if num_str[0] == "0" and len(num_str) > 1 and num_str[1] == "x":
         hex_based = True

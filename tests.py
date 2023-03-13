@@ -50,6 +50,46 @@ class TestCase(unittest.TestCase):
         number = '-456-12'
         self.assertEqual(conv_num(number), None)
 
+    def test12_conv_num(self):
+        number = '0xff'
+        self.assertEqual(conv_num(number), 255)
+
+    def test13_conv_num(self):
+        number = '0xFF'
+        self.assertEqual(conv_num(number), 255)
+
+    def test14_conv_num(self):
+        number = '-0xFF'
+        self.assertEqual(conv_num(number), None)
+
+    def test15_conv_num(self):
+        number = '0x'
+        self.assertEqual(conv_num(number), None)
+
+    def test16_conv_num(self):
+        number = '0xFF.02'
+        self.assertEqual(conv_num(number), None)
+
+    def test17_conv_num(self):
+        number = '12.34.56'
+        self.assertEqual(conv_num(number), None)
+
+    def test18_conv_num(self):
+        number = '12x34'
+        self.assertEqual(conv_num(number), None)
+
+    def test19_conv_num(self):
+        number = ''
+        self.assertEqual(conv_num(number), None)
+
+    def test20_conv_num(self):
+        number = 12345
+        self.assertEqual(conv_num(number), None)
+
+    def test21_conv_num(self):
+        number = None
+        self.assertEqual(conv_num(number), None)
+
     # -----------------------------------------------------------------
     # Test Driven Development for conv_endian()
     #
@@ -176,7 +216,7 @@ class TestCase(unittest.TestCase):
         self.assertEqual(my_datetime(num_sec), date)
 
     def test5_datetime(self):
-        num_sec = 201653971200
+        num_sec = 2016539712
         date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
         self.assertEqual(my_datetime(num_sec), date)
 
