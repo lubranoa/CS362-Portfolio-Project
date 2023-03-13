@@ -195,6 +195,16 @@ class TestCase(unittest.TestCase):
         number = 954786
         self.assertEqual(conv_endian(number, 'Big'), None)
 
+    # Verifies if using 'small' as an argument returns None
+    def test21_conv_end(self):
+        number = 954786
+        self.assertEqual(conv_endian(number, 'small'), None)
+
+    # Verifies if using 'little' as an argument returns a number correctly
+    def test22_conv_end(self):
+        number = 954786
+        self.assertEqual(conv_endian(number, 'little'), 'A2 91 0E')
+
     def test1_datetime(self):
         num_sec = 123456789
         date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')
