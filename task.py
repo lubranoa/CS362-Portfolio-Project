@@ -3,6 +3,7 @@
 #
 
 import string
+from collections import deque
 
 
 def conv_num_int_helper(num_str):
@@ -132,29 +133,40 @@ def conv_endian(num, endian='big'):
     """
     hex_str = string.digits + string.ascii_uppercase[0:6]  # '0123456789ABCDEF'
     char_stack = []
+    byte_deque = deque()
 
-    if endian != 'big':
+    if endian not in ['big', 'little']:
         return None
 
     out_str = '' if num >= 0 else '-'
-    num = abs(num)
+    val = abs(num)
 
     # Get hex digit chars and append to char_stack
-    if num == 0:
-        char_stack.append(hex_str[num])
-    while num != 0:
-        modulo = num % 16
+    if val == 0:
+        char_stack.append(hex_str[val])
+    while val != 0:
+        modulo = val % 16
         char_stack.append(hex_str[modulo])
-        num //= 16
+        val //= 16
+
+    # Construct bytes
+    num_chars = len(char_stack)
+    while len(char_stack) != 0:
+        if num_chars == len(char_stack) and len(char_stack) % 2 != 0:
+            byte_str = '0' + char_stack.pop()
+            byte_deque.append(byte_str)
+        else:
+            byte_str = char_stack.pop() + char_stack.pop()
+            byte_deque.append(byte_str)
 
     # Construct string
-    if len(char_stack) % 2 != 0:
-        out_str += '0'
-    while len(char_stack) != 0:
-        out_str += char_stack.pop()
-        # Insert space between each pair of hex digits, unless none left
-        if len(char_stack) > 0 and len(char_stack) % 2 == 0:
-            out_str += ' '
+    while len(byte_deque) != 0:
+        if endian == 'big':
+            out_str += (byte_deque.popleft() + ' ') if len(byte_deque) > 1 \
+                else byte_deque.popleft()
+        elif endian == 'little':
+            out_str += (byte_deque.pop() + ' ') if len(byte_deque) > 1 \
+                else byte_deque.pop()
 
     return out_str
 
