@@ -205,6 +205,22 @@ class TestCase(unittest.TestCase):
         number = 954786
         self.assertEqual(conv_endian(number, 'little'), 'A2 91 0E')
 
+    # Verifies if using 'little' with a negative number as an argument returns
+    # a number correctly
+    def test23_conv_end(self):
+        number = -954786
+        self.assertEqual(conv_endian(number, 'little'), '-A2 91 0E')
+
+    # Verifies if using endian='little' with a negative number as an argument
+    # returns a number correctly
+    def test24_conv_end(self):
+        number = -954786
+        self.assertEqual(conv_endian(number, endian='little'), '-A2 91 0E')
+
+    # Verifies if using num=954786 as an argument returns a number correctly
+    def test25_conv_end(self):
+        self.assertEqual(conv_endian(num=954786, endian='little'), 'A2 91 0E')
+
     def test1_datetime(self):
         num_sec = 123456789
         date = datetime.datetime.utcfromtimestamp(num_sec).strftime('%m-%d-%Y')

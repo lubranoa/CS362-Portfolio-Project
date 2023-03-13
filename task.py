@@ -139,15 +139,15 @@ def conv_endian(num, endian='big'):
         return None
 
     out_str = '' if num >= 0 else '-'
-    num = abs(num)
+    val = abs(num)
 
     # Get hex digit chars and append to char_stack
-    if num == 0:
-        char_stack.append(hex_str[num])
-    while num != 0:
-        modulo = num % 16
+    if val == 0:
+        char_stack.append(hex_str[val])
+    while val != 0:
+        modulo = val % 16
         char_stack.append(hex_str[modulo])
-        num //= 16
+        val //= 16
 
     # Construct bytes
     num_chars = len(char_stack)
@@ -159,15 +159,14 @@ def conv_endian(num, endian='big'):
             byte_str = char_stack.pop() + char_stack.pop()
             byte_deque.append(byte_str)
 
+    # Construct string
     while len(byte_deque) != 0:
         if endian == 'big':
-            out_str = (out_str + byte_deque.popleft() + ' ') \
-                if len(byte_deque) > 1 \
-                else (out_str + byte_deque.popleft())
+            out_str += (byte_deque.popleft() + ' ') if len(byte_deque) > 1 \
+                else byte_deque.popleft()
         elif endian == 'little':
-            out_str = (out_str + byte_deque.pop() + ' ') \
-                if len(byte_deque) > 1 \
-                else (out_str + byte_deque.pop())
+            out_str += (byte_deque.pop() + ' ') if len(byte_deque) > 1 \
+                else byte_deque.pop()
 
     return out_str
 
