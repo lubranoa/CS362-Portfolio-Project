@@ -6,6 +6,56 @@ import string
 from collections import deque
 
 
+def conv_endian(num, endian='big'):
+    """Converts an integer from base 10 to a hexadecimal string in
+    either big or little endian byte order. Returns None if value for
+    endian is incorrect.
+
+    :param int num: A negative or positive integer
+    :param str endian: A byte order, 'big' or 'little', defaults to 'big'
+    :return: The converted hex number string in specified byte order
+    :rtype: string or None
+    """
+    hex_str = string.digits + string.ascii_uppercase[0:6]  # '0123456789ABCDEF'
+    char_stack = []
+    byte_deque = deque()
+
+    if endian not in ['big', 'little']:
+        return None
+
+    out_str = '' if num >= 0 else '-'
+    val = abs(num)
+
+    # Get hex digit chars and append to char_stack
+    if val == 0:
+        char_stack.append(hex_str[val])
+    while val != 0:
+        modulo = val % 16
+        char_stack.append(hex_str[modulo])
+        val //= 16
+
+    # Construct bytes
+    num_chars = len(char_stack)
+    while len(char_stack) != 0:
+        if num_chars == len(char_stack) and len(char_stack) % 2 != 0:
+            byte_str = '0' + char_stack.pop()
+            byte_deque.append(byte_str)
+        else:
+            byte_str = char_stack.pop() + char_stack.pop()
+            byte_deque.append(byte_str)
+
+    # Construct string
+    while len(byte_deque) != 0:
+        if endian == 'big':
+            out_str += (byte_deque.popleft() + ' ') if len(byte_deque) > 1 \
+                else byte_deque.popleft()
+        elif endian == 'little':
+            out_str += (byte_deque.pop() + ' ') if len(byte_deque) > 1 \
+                else byte_deque.pop()
+
+    return out_str
+
+
 def conv_num_int_helper(num_str):
     """
     Parses through string to verify integrity
@@ -119,56 +169,6 @@ def conv_num(num_str):
         return hex_value
     else:
         return None
-
-
-def conv_endian(num, endian='big'):
-    """Converts an integer from base 10 to a hexadecimal string in
-    either big or little endian byte order. Returns None if value for
-    endian is incorrect.
-
-    :param int num: A negative or positive integer
-    :param str endian: A byte order, 'big' or 'little', defaults to 'big'
-    :return: The converted hex number string in specified byte order
-    :rtype: string or None
-    """
-    hex_str = string.digits + string.ascii_uppercase[0:6]  # '0123456789ABCDEF'
-    char_stack = []
-    byte_deque = deque()
-
-    if endian not in ['big', 'little']:
-        return None
-
-    out_str = '' if num >= 0 else '-'
-    val = abs(num)
-
-    # Get hex digit chars and append to char_stack
-    if val == 0:
-        char_stack.append(hex_str[val])
-    while val != 0:
-        modulo = val % 16
-        char_stack.append(hex_str[modulo])
-        val //= 16
-
-    # Construct bytes
-    num_chars = len(char_stack)
-    while len(char_stack) != 0:
-        if num_chars == len(char_stack) and len(char_stack) % 2 != 0:
-            byte_str = '0' + char_stack.pop()
-            byte_deque.append(byte_str)
-        else:
-            byte_str = char_stack.pop() + char_stack.pop()
-            byte_deque.append(byte_str)
-
-    # Construct string
-    while len(byte_deque) != 0:
-        if endian == 'big':
-            out_str += (byte_deque.popleft() + ' ') if len(byte_deque) > 1 \
-                else byte_deque.popleft()
-        elif endian == 'little':
-            out_str += (byte_deque.pop() + ' ') if len(byte_deque) > 1 \
-                else byte_deque.pop()
-
-    return out_str
 
 
 def my_datetime(num_sec):

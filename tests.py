@@ -5,93 +5,9 @@ from task import conv_num, conv_endian, my_datetime
 
 class TestCase(unittest.TestCase):
 
-    # Begin conv_num tests
-    def test1_conv_num(self):
-        number = '12345'
-        self.assertEqual(conv_num(number), 12345)
-
-    def test2_conv_num(self):
-        number = '-12345'
-        self.assertEqual(conv_num(number), -12345)
-
-    def test3_conv_num(self):
-        number = '12.345'
-        self.assertEqual(conv_num(number), 12.345)
-
-    def test4_conv_num(self):
-        number = '-12.345'
-        self.assertEqual(conv_num(number), -12.345)
-
-    def test5_conv_num(self):
-        number = '.45'
-        self.assertEqual(conv_num(number), 0.45)
-
-    def test6_conv_num(self):
-        number = '0xAD4'
-        self.assertEqual(conv_num(number), 2772)
-
-    def test7_conv_num(self):
-        number = '0xAZ4'
-        self.assertEqual(conv_num(number), None)
-
-    def test8_conv_num(self):
-        number = '12312341235'
-        self.assertEqual(conv_num(number), 12312341235)
-
-    def test9_conv_num(self):
-        number = '-12312A5'
-        self.assertEqual(conv_num(number), None)
-
-    def test10_conv_num(self):
-        number = '--1212'
-        self.assertEqual(conv_num(number), None)
-
-    def test11_conv_num(self):
-        number = '-456-12'
-        self.assertEqual(conv_num(number), None)
-
-    def test12_conv_num(self):
-        number = '0xff'
-        self.assertEqual(conv_num(number), 255)
-
-    def test13_conv_num(self):
-        number = '0xFF'
-        self.assertEqual(conv_num(number), 255)
-
-    def test14_conv_num(self):
-        number = '-0xFF'
-        self.assertEqual(conv_num(number), None)
-
-    def test15_conv_num(self):
-        number = '0x'
-        self.assertEqual(conv_num(number), None)
-
-    def test16_conv_num(self):
-        number = '0xFF.02'
-        self.assertEqual(conv_num(number), None)
-
-    def test17_conv_num(self):
-        number = '12.34.56'
-        self.assertEqual(conv_num(number), None)
-
-    def test18_conv_num(self):
-        number = '12x34'
-        self.assertEqual(conv_num(number), None)
-
-    def test19_conv_num(self):
-        number = ''
-        self.assertEqual(conv_num(number), None)
-
-    def test20_conv_num(self):
-        number = 12345
-        self.assertEqual(conv_num(number), None)
-
-    def test21_conv_num(self):
-        number = None
-        self.assertEqual(conv_num(number), None)
-
     # -----------------------------------------------------------------
     # Test Driven Development for conv_endian()
+    #   - By Alexander Lubrano
     #
     # -----------------------------------------------------------------
 
@@ -220,6 +136,100 @@ class TestCase(unittest.TestCase):
     # Verifies if using num=954786 as an argument returns a number correctly
     def test25_conv_end(self):
         self.assertEqual(conv_endian(num=954786, endian='little'), 'A2 91 0E')
+
+    # -----------------------------------------------------------------
+    # Begin conv_num tests
+    #
+    # -----------------------------------------------------------------
+
+    def test1_conv_num(self):
+        number = '12345'
+        self.assertEqual(conv_num(number), 12345)
+
+    def test2_conv_num(self):
+        number = '-12345'
+        self.assertEqual(conv_num(number), -12345)
+
+    def test3_conv_num(self):
+        number = '12.345'
+        self.assertEqual(conv_num(number), 12.345)
+
+    def test4_conv_num(self):
+        number = '-12.345'
+        self.assertEqual(conv_num(number), -12.345)
+
+    def test5_conv_num(self):
+        number = '.45'
+        self.assertEqual(conv_num(number), 0.45)
+
+    def test6_conv_num(self):
+        number = '0xAD4'
+        self.assertEqual(conv_num(number), 2772)
+
+    def test7_conv_num(self):
+        number = '0xAZ4'
+        self.assertEqual(conv_num(number), None)
+
+    def test8_conv_num(self):
+        number = '12312341235'
+        self.assertEqual(conv_num(number), 12312341235)
+
+    def test9_conv_num(self):
+        number = '-12312A5'
+        self.assertEqual(conv_num(number), None)
+
+    def test10_conv_num(self):
+        number = '--1212'
+        self.assertEqual(conv_num(number), None)
+
+    def test11_conv_num(self):
+        number = '-456-12'
+        self.assertEqual(conv_num(number), None)
+
+    def test12_conv_num(self):
+        number = '0xff'
+        self.assertEqual(conv_num(number), 255)
+
+    def test13_conv_num(self):
+        number = '0xFF'
+        self.assertEqual(conv_num(number), 255)
+
+    def test14_conv_num(self):
+        number = '-0xFF'
+        self.assertEqual(conv_num(number), None)
+
+    def test15_conv_num(self):
+        number = '0x'
+        self.assertEqual(conv_num(number), None)
+
+    def test16_conv_num(self):
+        number = '0xFF.02'
+        self.assertEqual(conv_num(number), None)
+
+    def test17_conv_num(self):
+        number = '12.34.56'
+        self.assertEqual(conv_num(number), None)
+
+    def test18_conv_num(self):
+        number = '12x34'
+        self.assertEqual(conv_num(number), None)
+
+    def test19_conv_num(self):
+        number = ''
+        self.assertEqual(conv_num(number), None)
+
+    def test20_conv_num(self):
+        number = 12345
+        self.assertEqual(conv_num(number), None)
+
+    def test21_conv_num(self):
+        number = None
+        self.assertEqual(conv_num(number), None)
+
+    # -----------------------------------------------------------------
+    # Begin my_datetime tests
+    #
+    # -----------------------------------------------------------------
 
     def test1_datetime(self):
         num_sec = 123456789
