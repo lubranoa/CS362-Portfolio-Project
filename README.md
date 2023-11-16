@@ -47,8 +47,11 @@ This project focused on the setting up of a Continuous Integration (CI) workflow
 
 Each teammate picked one of three functions to work on. The one I chose to implement was an endian conversion function that converts an integer to its hexadecimal representation in little or big endian. This function was implemented using a test suite of Test Driven Development cases, our CI workflow, and peer code reviews. Again, the focus of this project is not on the functions themselves, but on the CI and testing done to produce the functions.
 
+**Note**: This is a fork of our group's repo, which can be found [here][main-repo-url].
+
 <!-- Technologies Used -->
 ## Technologies and Frameworks Used
+
    - [![python][python]][python-url]
    - [![github-wf][github-wf]][github-wf-url]
    - [![unittest][unittest]][unittest-url]
@@ -67,7 +70,6 @@ Each teammate picked one of three functions to work on. The one I chose to imple
   - Development of the test suite involved varied testing techniques
   - My function, `conv_endian`, was developed using TDD
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Usage -->
@@ -85,24 +87,30 @@ This [workflow](/.github/workflows/python-app.yml) does a few major things:
   5) Runs the test suite named `tests.py`.
 
 The main goal of this CI workflow is to protect the main branch of the repository from errant or broken code. It accomplishes this in multiple ways:
-  - Checks the code for issues with both the linter and test suite. The code must be fixed before creating a pull request.
+  - Checks the code for syntax issues and errors. Any issues with the code must be fixed before creating a pull request.
   - Requires a pull request before merging a branch to the main branch.
   - Requires at least one approval from a repo collaborator.
   - Does not allow bypassing of the above settings.
+
+If curious, the main repo's workflow history can be found in its [Actions tab][repo-actions-url].
+
+#### Function Development
+
+The project specifications stated that the function `conv_endian` must convert integers to a hexadecimal number split into two-character bytes in either little or big endian byte orders, depending on what was specified when calling the function. My approach to solving this problem was to develop it using Test Driven Development (TDD). 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Skills Applied -->
 ## Skills Applied
-#### Skill 1:
-  - description
-#### Skill 2:
-  - description
+
+  - skill 1
+  - skill 2
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Contact -->
 ## Contact
+
 Alexander Lubrano - [lubrano.alexander@gmail.com][email] - [LinkedIn][linkedin-url]
 
 Project Link: [https://github.com/lubranoa/CS362-Portfolio-Project][repo-url]
@@ -111,6 +119,7 @@ Project Link: [https://github.com/lubranoa/CS362-Portfolio-Project][repo-url]
 
 <!-- Acknowledgements -->
 ## Acknowledgments
+
   - [Shields.io][shields-url]
   - [Simple Icons][icons-url]
 
@@ -130,6 +139,8 @@ Project Link: [https://github.com/lubranoa/CS362-Portfolio-Project][repo-url]
 [tdd]: https://img.shields.io/badge/Test_Driven_Development-grey?style=for-the-badge
 [tdd-url]: https://www.guru99.com/test-driven-development.html
 
+[main-repo-url]: https://github.com/Spatch7/CS362Portfolio
+[repo-actions-url]: https://github.com/Spatch7/CS362Portfolio/actions
 [shields-url]: https://shields.io/
 [icons-url]: https://simpleicons.org/
 
