@@ -92,7 +92,7 @@ The main goal of this CI workflow is to protect the main branch of the repositor
   - Requires at least one approval from a repo collaborator.
   - Does not allow bypassing of the above settings.
 
-The main repo's workflow history can be found in its [Actions history tab][repo-actions-url].
+The main repo's workflow history can be found in its [Actions history][repo-actions-url].
 
 #### Function Development
 
@@ -100,7 +100,7 @@ The project specifications stated that the function `conv_endian` must convert i
 
 The core principle of TDD is that one only writes new code if there exists at least one failing test. Thus, the basic steps of TDD are to write a test that fails, then to write code that makes that test and all other tests pass, and then to repeat that until requirements are met. 
 
-My TDD process started off with writing tests for more simple conversions like the integers 0 and 6, then wrote code to make them pass, and moved on to more complex integers like 10, 15, and 16. This continued while slowly increasing integer size and complexity, such as integers that convert to two bytes or more of hexadecimal, adding in negative integers, and converting to little or big endian. Below is a snippet of the first few tests. The full test suite for `conv_endian` can be found in the [tests.py](/tests.py) file.
+My TDD process started off with writing tests for more simple conversions like the integers 0 and 6, then wrote code to make them pass, and moved on to more complex integers like 10, 15, and 16. This continued while slowly increasing integer size and complexity, such as integers that convert to two bytes or more of hexadecimal, adding in negative integers, and converting to little or big endian. Below is a snippet of the first few tests. The full test suite for `conv_endian` can be found in the [`tests.py`](/tests.py) file.
 
 ```python
 # Verifies if the number 0 is returned correctly
@@ -124,7 +124,7 @@ def test4_conv_end(self):
     self.assertEqual(conv_endian(number), '0A')
 ```
 
-Once the requirements for `conv_endian` were completely met by the function I developed in [task.py](/task.py), my TDD process was finished. This was the final version turned in for a grade. Some other testing that would have been beneficial after TDD was some form of dynamically generated randomized testing. This would have been the perfect followup because it could have potentially caught any edge cases that I missed via TDD. Any failed tests could have been logged for use in more TDD steps, which could have helped polish `conv_endian` even further.
+Once the requirements for `conv_endian` were completely met by the function I developed in [`task.py`](/task.py), my TDD process was finished. This was the final version turned in for a grade. Some other testing that would have been beneficial after TDD was some form of dynamically generated randomized testing. This would have been the perfect followup because it could have potentially caught any edge cases that I missed via TDD. Any failed tests could have been logged for use in more TDD steps, which could have helped polish `conv_endian` even further.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
