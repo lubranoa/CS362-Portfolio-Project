@@ -63,11 +63,17 @@ Each teammate picked one of three functions to work on. The one I chose to imple
   Because this program is an exercise in Continuous Integration and testing, it does not have the features of a program that can be run to solve a problem or do something for you. Here are some "*features*" of this project.
 
   - Implements a GitHub Workflow for CI in a shared repository
+
   - CI workflow triggers on pushes and pull requests to the repo
+
   - CI workflow runs tests and protects the main branch from errant code
+
   - Contains three functions that accomplish different tasks
+
   - Contains a test suite for testing these three functions
+
   - Development of the test suite involved varied testing techniques
+
   - My function, `conv_endian`, was developed using TDD
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -132,10 +138,15 @@ Once the requirements for `conv_endian` were completely met by the function I de
 ## Skills Applied
 
   - Unit testing and Test Suite design in Python
+
   - Using Test Driven Development to implement code
+
   - Setting up and configuring CI workflows with GitHub Actions
+
   - Collaborative development using GitHub
+
   - Handling merge conflicts within a team environment
+
   - Effective communication and team collaboration
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -182,5 +193,5 @@ Project Link: [https://github.com/lubranoa/CS362-Portfolio-Project][repo-url]
 [icons-url]: https://simpleicons.org/
 
 [email]: mailto:lubrano.alexander@gmail.com
-[linkedin-url]: www.linkedin.com/in/lubrano-alexander
+[linkedin-url]: https://www.linkedin.com/in/lubrano-alexander
 [repo-url]: https://github.com/lubranoa/CS362-Portfolio-Project
