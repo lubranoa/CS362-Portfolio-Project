@@ -113,6 +113,8 @@ The main goal of this CI workflow is to protect the main branch of the repositor
 
 Since this is a fork, the main repo's workflow history between the teammates can be found in its [Actions history][repo-actions-url].
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Function Development
 
 The project specifications stated that the function `conv_endian` must convert integers to a hexadecimal number split into two-character bytes in either little or big endian byte orders, depending on what was specified when calling the function. My approach to solving this problem was to develop it using Test Driven Development (TDD).
