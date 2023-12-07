@@ -5,7 +5,7 @@
 <div align="center">
   <!-- Badges -->
   <p>
-    <a href="www.linkedin.com/in/lubrano-alexander">
+    <a href="https://www.linkedin.com/in/lubrano-alexander">
       <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin" alt="linkedin link" />
     </a>
     <a href="https://lubranoa.github.io">
@@ -35,7 +35,10 @@
   - [Technologies Used](#technologies-and-frameworks-used)
   - [Features](#features)
   - [Usage](#usage)
+    - [GitHub CI Workflow](#github-ci-workflow)
+    - [Function Development](#function-development)
   - [Skills Applied](#skills-applied)
+  - [Contact](#contact)
   - [Acknowledgments](#acknowledgements)
 
 </details>
