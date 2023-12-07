@@ -39,7 +39,7 @@
     - [Function Development](#function-development)
   - [Skills Applied](#skills-applied)
   - [Contact](#contact)
-  - [Acknowledgments](#acknowledgements)
+  - [Acknowledgments](#acknowledgments)
 
 </details>
 
@@ -175,7 +175,7 @@ Project Link: [https://github.com/lubranoa/CS362-Portfolio-Project][repo-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- Acknowledgements -->
+<!-- Acknowledgments -->
 ## Acknowledgments
 
   - [Main Group Repo][main-repo-url]
