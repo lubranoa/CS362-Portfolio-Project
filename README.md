@@ -46,11 +46,13 @@
 <!-- Project Description -->
 ## Project Description
 
-This project focused on the setting up of a Continuous Integration (CI) workflow for the team to develop and test several functions within a shared codespace. The first goal was to set up a shared private GitHub repository following specific guidelines and configuring a CI pipeline for the repository using GitHub Actions. The second goal was to implement three functions in a Python file using the CI workflow, code reviews, and a variety of testing techniques, like Unit Testing and Test Driven Development (TDD), to verify implementation of the software.
+This project focused on the setting up of a Continuous Integration (CI) workflow for the team to develop and test several functions within a shared codebase. The first goal was to set up a shared private GitHub repository following specific guidelines and configuring a CI pipeline for the repository using GitHub Actions. The second goal was to implement three functions in a Python file using the CI workflow, code reviews, and a variety of testing techniques, like Unit Testing and Test Driven Development (TDD), to verify implementation of the software.
 
 Each teammate picked one of three functions to work on. The one I chose to implement was an endian conversion function that converts an integer to its hexadecimal representation in little or big endian. This function was implemented using a test suite of Test Driven Development cases, our CI workflow, and peer code reviews. Again, the focus of this project is not on the functions themselves, but on the CI and testing done to produce the functions.
 
 **Note**: This is a fork of our group's repo, which can be found [here][main-repo-url].
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Technologies Used -->
 ## Technologies and Frameworks Used
@@ -59,6 +61,8 @@ Each teammate picked one of three functions to work on. The one I chose to imple
    - [![github-wf][github-wf]][github-wf-url]
    - [![unittest][unittest]][unittest-url]
    - [![tdd][tdd]][tdd-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Features -->
 ## Features
@@ -86,24 +90,30 @@ Each teammate picked one of three functions to work on. The one I chose to imple
 
 Seeing as this is not a program used to accomplish something, this section will focus more on the usage of the CI workflow in `python-app.yml` and the development of my testing section of `test.py` and my function in `task.py`.
 
-#### GitHub CI Workflow
+### GitHub CI Workflow
 
 This [workflow](/.github/workflows/python-app.yml) does a few major things:
+
   1) Runs when pushes or pull requests trigger it.
+
   2) Sets up Python on an Ubuntu virtual machine.
+  
   3) Installs any dependencies in the `.yml` file and in a `requirements.txt` file if present (if not, it's skipped).
+
   4) Lints any Python files for issues.
+  
   5) Runs the test suite named `tests.py`.
 
 The main goal of this CI workflow is to protect the main branch of the repository from errant or broken code. It accomplishes this in multiple ways:
+
   - Checks the code for syntax issues and errors. Any issues with the code must be fixed before creating a pull request.
   - Requires a pull request before merging a branch to the main branch.
   - Requires at least one approval from a repo collaborator.
   - Does not allow bypassing of the above settings.
 
-The main repo's workflow history can be found in its [Actions history][repo-actions-url].
+Since this is a fork, the main repo's workflow history between the teammates can be found in its [Actions history][repo-actions-url].
 
-#### Function Development
+### Function Development
 
 The project specifications stated that the function `conv_endian` must convert integers to a hexadecimal number split into two-character bytes in either little or big endian byte orders, depending on what was specified when calling the function. My approach to solving this problem was to develop it using Test Driven Development (TDD).
 
