@@ -17,9 +17,9 @@
   </p>
   <br />
   <!-- Titles and Subtitles -->
-  <h1 align="center">Continuous Integration Group Project</h1>
+  <h1 align="center">CI-Driven Collaborative Software Development with Python</h1>
   <p align="center">
-    <b>Implementing Python Functions Using Unit Testing and a CI Workflow in a Shared Repository</b>
+    <b>Collaboratively Implementing Python Functions Using Unit Testing and a CI Workflow in a Shared Repository</b>
   </p>
   <p align="center">
     Winter 2023 · <a href="https://ecampus.oregonstate.edu/soc/ecatalog/ecoursedetail.htm?subject=CS&coursenumber=362&termcode=ALL">CS 362 Software Engineering II</a> · Oregon State University
