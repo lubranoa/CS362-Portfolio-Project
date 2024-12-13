@@ -17,9 +17,9 @@
   </p>
   <br />
   <!-- Titles and Subtitles -->
-  <h1 align="center">CI-Driven Collaborative Software Development with Python</h1>
+  <h1 align="center">Continuous Integration in Collaborative Python Development</h1>
   <p align="center">
-    <b>Collaboratively Implementing Python Functions Using Unit Testing and a CI Workflow in a Shared Repository</b>
+    <b>Co-development of Python functions using Test-Driven Development (TDD) and a Continuous Integration (CI) workflow with GitHub Actions in a shared repository.</b>
   </p>
   <p align="center">
     Winter 2023 · <a href="https://ecampus.oregonstate.edu/soc/ecatalog/ecoursedetail.htm?subject=CS&coursenumber=362&termcode=ALL">CS 362 Software Engineering II</a> · Oregon State University
@@ -152,17 +152,17 @@ Once the requirements for `conv_endian` were completely met by the function I de
 <!-- Skills Applied -->
 ## Skills Applied
 
-  - Unit testing and Test Suite design in Python
+  - Developed unit tests and designed test suites using Python's unittest framework.
 
-  - Using Test Driven Development to implement code
+  - Implemented Test-Driven Development (TDD) methodologies to guide function implementation.
 
-  - Setting up and configuring CI workflows with GitHub Actions
+  - Configured Continuous Integration workflows using GitHub Actions to automate testing and deployment.
 
-  - Collaborative development using GitHub
+  - Collaborated with team members through GitHub for version control and code reviews.
 
-  - Handling merge conflicts within a team environment
+  - Resolved merge conflicts and coordinated code integration in a team environment.
 
-  - Effective communication and team collaboration
+  - Communicated effectively with team members to ensure cohesive development and adherence to project timelines.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
