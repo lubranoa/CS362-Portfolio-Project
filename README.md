@@ -67,7 +67,7 @@ Each teammate was responsible for developing one of three functions. I implement
 <!-- Features -->
 ## Features
    
-  Because this program is an exercise in Continuous Integration and testing, it does not have the features of a program that can be run to solve a problem or do something for you. Here are some "*features*" of this project.
+This project emphasizes Continuous Integration and testing practices rather than end-user functionality. The following highlights key aspects of its implementation:
 
   - Configured a GitHub Actions workflow to automate testing and integration in a shared repository.
 
@@ -84,7 +84,7 @@ Each teammate was responsible for developing one of three functions. I implement
 <!-- Usage -->
 ## Usage
 
-This project emphasizes Continuous Integration and testing practices rather than end-user functionality. The following highlights key aspects of its implementation.
+Since this project focuses on Continuous Integration and testing practices rather than traditional application functionality, this section highlights the usage of the CI workflow defined in `python-app.yml`, along with the development of test cases in `test.py` and the implementation of the `task.py` function.
 
 ### GitHub CI Workflow
 
