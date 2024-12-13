@@ -46,11 +46,10 @@
 <!-- Project Description -->
 ## Project Description
 
-This project focused on the setting up of a Continuous Integration (CI) workflow for the team to develop and test several functions within a shared codebase. The first goal was to set up a shared private GitHub repository following specific guidelines and configuring a CI pipeline for the repository using GitHub Actions. The second goal was to implement three functions in a Python file using the CI workflow, code reviews, and a variety of testing techniques, like Unit Testing and Test Driven Development (TDD), to verify implementation of the software.
+This project involved establishing a Continuous Integration (CI) workflow to streamline team collaboration and ensure robust software testing. The primary objectives were to set up a shared private GitHub repository, configure a CI pipeline using GitHub Actions, and implement Python functions guided by Unit Testing and Test-Driven Development (TDD).
 
-Each teammate picked one of three functions to work on. The one I chose to implement was an endian conversion function that converts an integer to its hexadecimal representation in little or big endian. This function was implemented using a test suite of Test Driven Development cases, our CI workflow, and peer code reviews. Again, the focus of this project is not on the functions themselves, but on the CI and testing done to produce the functions.
-
-**Note**: This is a fork of our group's repo, which can be found [here][main-repo-url].
+Each teammate was responsible for developing one of three functions. I implemented an endian conversion function that converts integers to their hexadecimal representation in either little or big endian formats. This function was developed using a comprehensive TDD process, validated through peer code reviews, and tested via the CI pipeline. The project emphasized the integration of CI and TDD methodologies to deliver high-quality, reliable code.
+**Note**: This repository is a fork of our group's main repository, accessible [here][main-repo-url].
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -69,19 +68,15 @@ Each teammate picked one of three functions to work on. The one I chose to imple
    
   Because this program is an exercise in Continuous Integration and testing, it does not have the features of a program that can be run to solve a problem or do something for you. Here are some "*features*" of this project.
 
-  - Implements a GitHub Workflow for CI in a shared repository
+  - Configured a GitHub Actions workflow to automate testing and integration in a shared repository.
 
-  - CI workflow triggers on pushes and pull requests to the repo
+  - Developed unit tests and designed test suites using Python's unittest framework.
 
-  - CI workflow runs tests and protects the main branch from errant code
+  - Implemented Test-Driven Development (TDD) methodologies to guide function implementation.
 
-  - Contains three functions that accomplish different tasks
+  - Conducted peer code reviews to maintain code quality and facilitate knowledge sharing.
 
-  - Contains a test suite for testing these three functions
-
-  - Development of the test suite involved varied testing techniques
-
-  - My function, `conv_endian`, was developed using TDD
+  - Established a Continuous Integration (CI) pipeline to streamline team collaboration and ensure robust software testing.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
