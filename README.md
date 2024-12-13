@@ -87,7 +87,7 @@ Seeing as this is not a program used to accomplish something, this section will 
 
 ### GitHub CI Workflow
 
-This [workflow](/.github/workflows/python-app.yml) does a few major things:
+The following workflow carries out a few major things:
 
   1) Runs when pushes or pull requests trigger it.
 
@@ -98,6 +98,43 @@ This [workflow](/.github/workflows/python-app.yml) does a few major things:
   4) Lints any Python files for issues.
   
   5) Runs the test suite named `tests.py`.
+
+  ```yml
+  name: Python application
+
+  on: [push, pull_request]
+
+  permissions:
+    contents: read
+
+  jobs:
+    build:
+
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --max-complexity=10 --max-line-length=127 --statistics
+      - name: Test with Unittest
+        run: |
+          python tests.py
+          
+    # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+  ```
 
 The main goal of this CI workflow is to protect the main branch of the repository from errant or broken code. It accomplishes this in multiple ways:
 
