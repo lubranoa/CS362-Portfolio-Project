@@ -49,6 +49,7 @@
 This project involved establishing a Continuous Integration (CI) workflow to streamline team collaboration and ensure robust software testing. The primary objectives were to set up a shared private GitHub repository, configure a CI pipeline using GitHub Actions, and implement Python functions guided by Unit Testing and Test-Driven Development (TDD).
 
 Each teammate was responsible for developing one of three functions. I implemented an endian conversion function that converts integers to their hexadecimal representation in either little or big endian formats. This function was developed using a comprehensive TDD process, validated through peer code reviews, and tested via the CI pipeline. The project emphasized the integration of CI and TDD methodologies to deliver high-quality, reliable code.
+
 **Note**: This repository is a fork of our group's main repository, accessible [here][main-repo-url].
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -83,11 +84,11 @@ Each teammate was responsible for developing one of three functions. I implement
 <!-- Usage -->
 ## Usage
 
-Seeing as this is not a program used to accomplish something, this section will focus more on the usage of the CI workflow in `python-app.yml` and the development of my testing section of `test.py` and my function in `task.py`.
+This project emphasizes Continuous Integration and testing practices rather than end-user functionality. The following highlights key aspects of its implementation.
 
 ### GitHub CI Workflow
 
-The following workflow carries out a few major things:
+The following workflow carries out a few major operations:
 
   1) Runs when pushes or pull requests trigger it.
 
@@ -139,21 +140,30 @@ The following workflow carries out a few major things:
 The main goal of this CI workflow is to protect the main branch of the repository from errant or broken code. It accomplishes this in multiple ways:
 
   - Checks the code for syntax issues and errors. Any issues with the code must be fixed before creating a pull request.
+
   - Requires a pull request before merging a branch to the main branch.
+
   - Requires at least one approval from a repo collaborator.
+
   - Does not allow bypassing of the above settings.
 
-Since this is a fork, the main repo's workflow history between the teammates can be found in its [Actions history][repo-actions-url].
+Since this is a fork, the main repo's workflow history between all three teammates can be found in its [Actions history][repo-actions-url].
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Function Development
 
-The project specifications stated that the function `conv_endian` must convert integers to a hexadecimal number split into two-character bytes in either little or big endian byte orders, depending on what was specified when calling the function. My approach to solving this problem was to develop it using Test Driven Development (TDD).
+The `conv_endian` function was designed to convert integers into their hexadecimal representation, split into two-character bytes in either little or big endian formats. To implement this, I applied Test-Driven Development (TDD), a methodology that ensures code is written only when there is at least one failing test to address.
 
-The core principle of TDD is that one only writes new code if there exists at least one failing test. Thus, the basic steps of TDD are to write a test that fails, then to write code that makes that test and all other tests pass, and then to repeat that until requirements are met. 
+The TDD process involved:
 
-My TDD process started off with writing tests for more simple conversions like the integers 0 and 6, then wrote code to make them pass, and moved on to more complex integers like 10, 15, and 16. This continued while slowly increasing integer size and complexity, such as integers that convert to two bytes or more of hexadecimal, adding in negative integers, and converting to little or big endian. Below is a snippet of the first few tests. The full test suite for `conv_endian` can be found in the [`tests.py`](/tests.py) file.
+  1.  Write a test for a simple case, such as smaller integers, `0`, `6`, and `10`.
+
+  2.  Develop code to make the one test pass while maintaining compatibility with previously written tests.
+  
+  3.  Gradually increasing complexity by adding tests for larger integers, negative values, and conversions between little and big endian formats.
+
+Below is a sample of the initial test cases used during development:
 
 ```python
 # Verifies if the number 0 is returned correctly
@@ -176,8 +186,7 @@ def test4_conv_end(self):
     number = 10
     self.assertEqual(conv_endian(number), '0A')
 ```
-
-Once the requirements for `conv_endian` were completely met by the function I developed in [`task.py`](/task.py), my TDD process was finished. This was the final version turned in for a grade. Some other testing that would have been beneficial after TDD was some form of dynamically generated randomized testing. This would have been the perfect followup because it could have potentially caught any edge cases that I missed via TDD. Any failed tests could have been logged for use in more TDD steps, which could have helped polish `conv_endian` even further.
+Upon meeting requirements for `conv_endian`, the function was finalized and submitted. While the implementation was robust, incorporating additional testing, such as dynamically generated randomized tests, could have further improved reliability by identifying overlooked edge cases. Any failed tests from such randomized testing could have been integrated into new TDD cycles to enhance the function’s accuracy.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
