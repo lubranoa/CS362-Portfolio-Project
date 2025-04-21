@@ -147,7 +147,7 @@ The main goal of this CI workflow is to protect the main branch of the repositor
 
   - Does not allow bypassing of the above settings.
 
-Since this is a fork, the main repo's workflow history between all three teammates can be found in its [Closed Pull Request history][repo-pr-url].  (I would link the Actions page but GitHub does not store actions over 1 year old.)
+Since this is a fork, the main repo's workflow history between all three teammates can be found in its [Closed Pull Request history][repo-pr-url].  (I would link the Actions page but GitHub does not store Actions history over 1 year old.)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
