@@ -147,7 +147,7 @@ The main goal of this CI workflow is to protect the main branch of the repositor
 
   - Does not allow bypassing of the above settings.
 
-Since this is a fork, the main repo's workflow history between all three teammates can be found in its [Actions history][repo-actions-url].
+Since this is a fork, the main repo's workflow history between all three teammates can be found in its [Closed Pull Request history][repo-pr-url].  (I would link the Actions page but GitHub does not store actions over 1 year old.)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -220,7 +220,7 @@ Project Link: [https://github.com/lubranoa/CS362-Portfolio-Project][repo-url]
 ## Acknowledgments
 
   - [Main Group Repo][main-repo-url]
-  - [Main Group Repo Actions History][repo-actions-url]
+  - [Main Group Repo Pull Request History][repo-pr-url]
   - [GitHub Actions Workflow Documentation][github-wf-url]
   - [Python unittest Documentation][unittest-url]
   - [Test Driven Development][tdd-url]
@@ -244,7 +244,7 @@ Project Link: [https://github.com/lubranoa/CS362-Portfolio-Project][repo-url]
 [tdd-url]: https://www.guru99.com/test-driven-development.html
 
 [main-repo-url]: https://github.com/Spatch7/CS362Portfolio
-[repo-actions-url]: https://github.com/Spatch7/CS362Portfolio/actions
+[repo-pr-url]: https://github.com/noah-calhoun/CS362Portfolio/pulls?q=is%3Apr+is%3Aclosed
 [shields-url]: https://shields.io/
 [icons-url]: https://simpleicons.org/
 
